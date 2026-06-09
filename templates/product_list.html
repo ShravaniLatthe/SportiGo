@@ -1,0 +1,51 @@
+{% extends "adminbase.html" %}
+{% block body %}
+
+<div class="container">
+  <center><h2>Product List</h2></center>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Product Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Size</th>
+      <th scope="col">Price</th>
+      <th scope="col">Brand</th>
+      <th scope="col">Image</th>
+      <th scope="col">Discount Price</th>
+      <th scope="col">Category</th>
+      <th scope="col">Modify</th>
+      <th scope="col">Action</th>
+
+
+    </tr>
+  </thead>
+  <tbody>
+  {% for row in value %}
+    <tr>
+      <form action="{{url_for('update_product')}}" method="post">
+      <th scope="row">{{ loop.index }}</th>
+        <input type="hidden" name="p_id" value="{{ row[0] }}">
+      <td><input type="text" name="p_name" value="{{ row[1] }}" class="form-control"></td>
+      <td><input type="number" name="p_size" value="{{ row[2] }}" class="form-control"></td>
+      <td><input type="text" name="p_price" value="{{ row[3] }}" class="form-control"></td>
+      <td><input type="text" name="p_brand" value="{{ row[4] }}" class="form-control"></td>
+      <td><input type="file" name="p_image" value="{{ row[5] }}" class="form-control"></td>
+      <td><input type="text" name="p_discount" value="{{ row[6] }}" class="form-control"></td>
+      <td><input type="text" name="c_category" value="{{ row[7] }}" class="form-control"></td>
+        <td>
+          <input type="submit" name="btn" value="Update" class="btn btn-success">
+        </td>
+      </form>
+
+  <form action="{{url_for('delete_product')}}" method="post">
+    <input type="hidden" name="p_id" value="{{ row[0] }}">
+    <td><input type="submit" value="Delete" name="btn" class="btn btn-danger"></td>
+  </form>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+
+{% endblock %}

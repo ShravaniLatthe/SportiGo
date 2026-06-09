@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sports Store</title>
+
+    <link rel="stylesheet" href="{{url_for('static',filename='bootstrap.min.css')}}">
+    <script src="{{ url_for('static', filename='bootstrap.bundle.min.js') }}"></script>
+
+    <style>
+
+        body{
+            font-family: Arial, sans-serif;
+            background-color:#f5f7fa;
+        }
+
+        .navbar{
+            background: linear-gradient(90deg,#0f172a,#1e3a8a) !important;
+        }
+
+        .navbar-brand,
+        .nav-link{
+            color:white !important;
+            font-weight:bold;
+        }
+
+        .nav-link:hover{
+            color:#facc15 !important;
+        }
+
+        .hero-image{
+            height:600px;
+            object-fit:cover;
+        }
+
+        .overlay{
+            position:absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            background:rgba(0,0,0,0.55);
+        }
+
+        .hero-content{
+            z-index:2;
+        }
+
+        .category-card{
+            transition:0.3s;
+            border:none;
+            border-radius:15px;
+        }
+
+        .category-card:hover{
+            transform:translateY(-10px);
+        }
+
+        .footer{
+            background:#0f172a;
+            color:white;
+            text-align:center;
+            padding:20px;
+            margin-top:50px;
+        }
+
+        .section-title{
+            color:#1e3a8a;
+            font-weight:bold;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg">
+
+  <div class="container-fluid">
+
+    <a class="navbar-brand" href="#">
+      <img src="{{ url_for('static', filename='sportlogo.png') }}"
+           height="50"
+           width="150">
+    </a>
+
+    <button class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent">
+
+      <span class="navbar-toggler-icon"></span>
+
+    </button>
+
+    <div class="collapse navbar-collapse"
+         id="navbarSupportedContent">
+
+      <ul class="navbar-nav me-auto">
+
+        <li class="nav-item">
+          <a class="nav-link active" href="#">
+            Home
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link"
+             href="{{url_for('adminlogin')}}">
+             Admin Login
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link"
+             href="{{url_for('userlogin')}}">
+             User Login
+          </a>
+        </li>
+
+        <li class="nav-item dropdown">
+
+          <a class="nav-link dropdown-toggle"
+             href="#"
+             role="button"
+             data-bs-toggle="dropdown">
+
+            More
+
+          </a>
+
+          <ul class="dropdown-menu">
+
+            <li>
+              <a class="dropdown-item"
+                 href="{{url_for('your_orders')}}">
+                 📦 Your Orders
+              </a>
+            </li>
+
+            <li>
+              <a class="dropdown-item"
+                 href="{{url_for('cart')}}">
+                 🛒 Cart
+              </a>
+            </li>
+
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li>
+                <a class="dropdown-item" href="{{ url_for('about') }}">
+                    ℹ️ About Us
+                </a>
+            </li>
+
+            <li>
+                <a class="dropdown-item" href="{{ url_for('contact') }}">
+                    📞 Contact Us
+                </a>
+            </li>
+
+          </ul>
+
+
+        </li>
+
+      </ul>
+
+      <form class="d-flex">
+
+        <input class="form-control me-2"
+               type="search"
+               placeholder="Search Sports Products">
+
+        <button class="btn btn-warning"
+                type="submit">
+            Search
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</nav>
+
+<!-- HERO SECTION -->
+
+<div class="position-relative">
+
+    <img src="{{ url_for('static', filename='home.jpg') }}"
+         class="hero-image w-100">
+
+    <div class="overlay"></div>
+
+    <div class="position-absolute top-50 start-50 translate-middle text-center text-white hero-content">
+
+        
+
+        <h3 class="mt-3">
+            Premium Sports Equipment For Champions
+        </h3>
+
+        <p class="fs-4">
+            Cricket • Football • Badminton • Fitness Gear
+        </p>
+
+        <h4 class="text-warning">
+            ⭐ Flat Discounts On Selected Products
+        </h4>
+
+        <a href="{{ url_for('view_product') }}"
+           class="btn btn-warning btn-lg mt-3">
+            Shop Now
+        </a>
+
+    </div>
+
+</div>
+
+<!-- CATEGORIES -->
+
+<div class="container mt-5">
+
+    <h2 class="text-center section-title mb-4">
+        Popular Categories
+    </h2>
+
+    <div class="row">
+
+        <div class="col-md-3">
+            <div class="card category-card shadow p-4 text-center">
+                <h1>🏏</h1>
+                <h4>Cricket</h4>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card category-card shadow p-4 text-center">
+                <h1>⚽</h1>
+                <h4>Football</h4>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card category-card shadow p-4 text-center">
+                <h1>🏸</h1>
+                <h4>Badminton</h4>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card category-card shadow p-4 text-center">
+                <h1>🏋️</h1>
+                <h4>Gym Equipment</h4>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- WHY CHOOSE US -->
+
+<div class="container mt-5 mb-5">
+
+    <h2 class="text-center section-title mb-4">
+        Why Choose Us?
+    </h2>
+
+    <div class="row text-center">
+
+        <div class="col-md-4">
+            <h1>🚚</h1>
+            <h4>Fast Delivery</h4>
+            <p>Quick and reliable delivery across India.</p>
+        </div>
+
+        <div class="col-md-4">
+            <h1>💯</h1>
+            <h4>Premium Quality</h4>
+            <p>High-quality sports and fitness products.</p>
+        </div>
+
+        <div class="col-md-4">
+            <h1>💰</h1>
+            <h4>Best Prices</h4>
+            <p>Affordable pricing with exciting discounts.</p>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+
+<div class="footer">
+
+    <h5>Sports Store</h5>
+
+    <p>
+        Cricket • Football • Badminton • Fitness
+    </p>
+
+    <small>
+        Designed by Shravani Latthe © 2026
+    </small>
+
+</div>
+
+</body>
+</html>

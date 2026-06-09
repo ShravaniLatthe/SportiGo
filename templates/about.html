@@ -1,0 +1,67 @@
+{% extends "userbase.html" %}
+
+{% block body %}
+
+<div class="container mt-5">
+
+    <div class="card shadow-lg p-5">
+
+        <div class="text-center">
+
+            <img src="{{ url_for('static', filename='sportlogo.png') }}"
+                 height="100">
+
+            <h1 class="mt-3 text-primary">
+                About SportiGo
+            </h1>
+
+        </div>
+
+        <hr>
+
+        <p class="fs-5 text-center">
+
+            SportiGo is an online sports shopping platform
+            designed for athletes, fitness enthusiasts,
+            and sports lovers.
+
+        </p>
+
+        <p class="fs-5 text-center">
+
+            Our mission is to provide high-quality sports
+            equipment, accessories, and fitness products
+            at affordable prices.
+
+        </p>
+
+        <div class="row mt-5">
+
+            <div class="col-md-4 text-center">
+
+                <h1>🏏</h1>
+                <h4>Cricket</h4>
+
+            </div>
+
+            <div class="col-md-4 text-center">
+
+                <h1>⚽</h1>
+                <h4>Football</h4>
+
+            </div>
+
+            <div class="col-md-4 text-center">
+
+                <h1>🏸</h1>
+                <h4>Badminton</h4>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends "userbase.html" %}
+
+{% block body %}
+
+<div class="container mt-5">
+
+    <h2 class="text-center mb-4">
+        My Orders
+    </h2>
+
+    {% if orders %}
+
+    <div class="row">
+
+        {% for product in orders %}
+
+        <div class="col-md-4">
+
+            <div class="card shadow-lg mb-4">
+
+                <img src="{{ url_for('static', filename='uploads/' + product[5]) }}"
+                     class="card-img-top"
+                     height="250">
+
+                <div class="card-body text-center">
+
+                    <h4>{{ product[1] }}</h4>
+
+                    <h5 class="text-success">
+                        ₹{{ product[3] }}
+                    </h5>
+
+                    <span class="badge bg-success">
+                        Ordered Successfully
+                    </span>
+
+                    <br><br>
+
+                    <a href="{{ url_for('cancel_order', p_id=product[0]) }}"
+                       class="btn btn-danger">
+                        Cancel Order
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    {% else %}
+
+    <div class="alert alert-warning text-center">
+        No Orders Found
+    </div>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}

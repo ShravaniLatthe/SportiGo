@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SportiGo Admin Panel</title>
+
+<link rel="stylesheet" href="{{url_for('static',filename='bootstrap.min.css')}}">
+<script src="{{ url_for('static', filename='bootstrap.bundle.min.js') }}"></script>
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+    background:#f4f7fc;
+}
+
+.navbar{
+    background:linear-gradient(90deg,#0f172a,#1e3a8a);
+}
+
+.navbar-brand img{
+    height:60px;
+}
+
+.nav-link{
+    color:white !important;
+    font-weight:bold;
+}
+
+.nav-link:hover{
+    color:#facc15 !important;
+}
+
+.dropdown-menu{
+    border-radius:12px;
+}
+
+.container{
+    background:white;
+    padding:25px;
+    margin-top:30px;
+    border-radius:15px;
+    box-shadow:0px 5px 15px rgba(0,0,0,0.1);
+}
+
+h2{
+    text-align:center;
+    color:#1e3a8a;
+    font-weight:bold;
+    margin-bottom:20px;
+}
+
+label{
+    font-weight:bold;
+    color:#0f172a;
+}
+
+.form-control{
+    border-radius:10px;
+}
+
+.btn-primary{
+    background:#1e3a8a;
+    border:none;
+}
+
+.btn-primary:hover{
+    background:#0f172a;
+}
+
+.btn-success{
+    background:#16a34a;
+    border:none;
+}
+
+.btn-success:hover{
+    background:#15803d;
+}
+
+.footer{
+    background:#0f172a;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:50px;
+}
+
+.footer img{
+    height:45px;
+    margin-bottom:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg">
+
+<div class="container-fluid">
+
+<a class="navbar-brand" href="{{url_for('index')}}">
+    <img src="{{ url_for('static', filename='sportlogo.png') }}"  height="50" width="150">
+</a>
+
+<button class="navbar-toggler bg-light"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent">
+
+    <span class="navbar-toggler-icon"></span>
+
+</button>
+
+<div class="collapse navbar-collapse"
+     id="navbarSupportedContent">
+
+<ul class="navbar-nav me-auto">
+
+<li class="nav-item">
+<a class="nav-link"
+   href="{{url_for('index')}}">
+   Home
+</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link"
+   href="{{url_for('category')}}">
+   Add Category
+</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link"
+   href="{{url_for('product')}}">
+   Add Product
+</a>
+</li>
+
+<li class="nav-item dropdown">
+
+<a class="nav-link dropdown-toggle"
+   href="#"
+   role="button"
+   data-bs-toggle="dropdown">
+
+More
+
+</a>
+
+<ul class="dropdown-menu">
+
+<li>
+<a class="dropdown-item"
+   href="{{url_for('category_list')}}">
+   Category List
+</a>
+</li>
+
+<li>
+<a class="dropdown-item"
+   href="{{url_for('product_list')}}">
+   Product List
+</a>
+</li>
+
+<li><hr class="dropdown-divider"></li>
+
+<li>
+<a class="dropdown-item" href="{{url_for('about_admin')}}">
+   About Admin
+</a>
+</li>
+
+</ul>
+
+</li>
+
+</ul>
+
+<form action="{{url_for('logout')}}"
+      method="post"
+      class="d-flex">
+
+<input class="form-control me-2"
+       type="search"
+       placeholder="Search">
+
+<button class="btn btn-warning">
+    Search
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</nav>
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for msg in messages %}
+
+<div class="alert alert-success text-center mt-2">
+{{ msg }}
+</div>
+
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+{% block body %}
+{% endblock %}
+
+<div class="footer">
+
+<img src="{{ url_for('static', filename='sportlogo.png') }}"   height="50" width="150">
+
+<br>
+
+Designed by Shravani Latthe © 2026
+
+</div>
+
+</body>
+</html>

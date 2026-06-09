@@ -1,0 +1,43 @@
+{% extends "adminbase.html" %}
+{% block body %}
+
+<div class="container">
+  <center><h2>Category List</h2></center>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col"> Category Id</th>
+      <th scope="col">Category Name</th>
+      <th scope="col">Image</th>
+      <th scope="col">Description</th>
+      <th scope="col">Modify</th>
+      <th scope="col">Action</th>
+
+
+    </tr>
+  </thead>
+  <tbody>
+  {% for row in value %}
+    <tr>
+      <form action="{{url_for('update_category')}}" method="post">
+      <th scope="row">{{ loop.index }}</th>
+        <input type="hidden" name="c_id" value="{{ row[0] }}">
+      <td><input type="text" name="c_name" value="{{ row[1] }}" class="form-control"></td>
+      <td><input type="file" name="c_img" value="{{ row[2] }}" class="form-control"></td>
+      <td><input type="text" name="c_desc" value="{{ row[3] }}" class="form-control"></td>
+        <td>
+          <input type="submit" name="btn" value="Update" class="btn btn-success">
+        </td>
+      </form>
+
+  <form action="{{url_for('delete_category')}}" method="post">
+    <input type="hidden" name="c_id" value="{{ row[0] }}">
+    <td><input type="submit" value="Delete" name="btn" class="btn btn-danger"></td>
+  </form>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+
+{% endblock %}

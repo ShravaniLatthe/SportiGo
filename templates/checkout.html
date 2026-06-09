@@ -1,0 +1,72 @@
+{% extends "userbase.html" %}
+
+{% block body %}
+
+<div class="container mt-5">
+
+    <div class="card shadow-lg border-0 mx-auto"
+         style="max-width:600px; border-radius:20px;">
+
+        <div class="card-header text-center text-white"
+             style="background:#198754; border-radius:20px 20px 0 0;">
+
+            <h2 class="fw-bold">
+                🛒 Checkout Summary
+            </h2>
+
+        </div>
+
+        <div class="card-body p-4">
+
+            <div class="d-flex justify-content-between mb-3">
+
+                <h5>Original Amount</h5>
+
+                <h5 class="text-primary">
+                    ₹{{ original_total }}
+                </h5>
+
+            </div>
+
+            <div class="d-flex justify-content-between mb-3">
+
+                <h5>Discount</h5>
+
+                <h5 class="text-danger">
+                    - ₹{{ discount_total }}
+                </h5>
+
+            </div>
+
+            <hr>
+
+            <div class="d-flex justify-content-between">
+
+                <h4 class="fw-bold">
+                    Final Amount
+                </h4>
+
+                <h4 class="fw-bold text-success">
+                    ₹{{ total }}
+                </h4>
+
+            </div>
+
+            <div class="text-center mt-4">
+
+                <a href="{{ url_for('place_order') }}"
+                   class="btn btn-success btn-lg px-5 fw-bold">
+
+                    ✅ Place Order
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

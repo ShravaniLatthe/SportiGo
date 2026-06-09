@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>USER REGISTER PAGE</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='bootstrap.min.css')}}">
+
+    <style>
+
+        .container{
+            background-color: whitesmoke;
+             border: 1px solid black;
+            padding: 10px;
+            margin-top: 10px;
+            width: 800px;
+        }
+        body{
+
+            padding: 10px;
+            margin-left: 250px;
+            margin-right: 250px;
+            margin-top: 50px;
+
+        }
+        h2{
+            text-align: center;
+            font-size: 35px;
+            color: darkred;
+            font-weight: bold;
+            font-family: "Gill Sans MT Ext Condensed Bold";
+        }
+
+        }
+        input [type=text],[type=password]{
+            width: 100%;
+            padding:5px 10px ;
+            box-sizing: border-box;
+        }
+
+        input[type=submit]{
+            background-color: orange;
+            padding: 8px 13px;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 10px;
+        }
+
+        input[type=reset]{
+            background-color: orange;
+            padding: 8px 13px;
+            color: white;
+            border: none;
+            margin-left: 10px;
+            border-radius: 5px;
+            font-size: 10px;
+        }
+
+        label{
+            font-size: 18px;
+            font-family:"Gill Sans MT Ext Condensed Bold" ;
+            color: darkred;
+        }
+
+        input{
+            font-size: 15px;
+        }
+    </style>
+</head>
+<form action="{{url_for('userregister')}}" method="post">
+<body>
+<div class="container">
+    <h2>User Register Page</h2>
+    <br>
+    <div class="row">
+        <div class="col-sm-6">
+            <label>First Name</label>
+            <input type="text" name="fname" placeholder="Enter First Name" class="form-control">
+        </div>
+
+        <div class="col-sm-6">
+            <label>Last Name</label>
+            <input type="text" name="lname" placeholder="Enter Last Name" class="form-control">
+        </div>
+    </div>
+    <br>
+     <div class="row">
+        <div class="col-sm-12">
+            <label>Address</label>
+            <input type="text" name="address" placeholder="Enter Address" class="form-control">
+        </div>
+    </div>
+    <br>
+     <div class="row">
+        <div class="col-sm-12">
+            <label>Contact No</label>
+            <input type="number" name="cno" placeholder="Enter Contact No" class="form-control">
+        </div>
+    </div>
+    <br>
+     <div class="row">
+        <div class="col-sm-12">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="Enter Email" class="form-control">
+        </div>
+    </div>
+    <br>
+     <div class="row">
+        <div class="col-sm-12">
+            <label>Password</label>
+            <input type="password" name="pass" placeholder="Enter Password" class="form-control">
+        </div>
+    </div>
+    <br>
+     <div class="row">
+        <div class="col-sm-12">
+            <center>
+            <input type="submit" value="Submit" class="btn btn-primary" style="font-size: 15px" >
+            <input type="reset" value="Reset"  class="btn btn-danger" style="font-size: 15px">
+            </center>
+        </div>
+    </div>
+</div>
+</body>
+</form>>
+</html>

@@ -1,0 +1,69 @@
+{% extends "userbase.html" %}
+
+{% block body %}
+
+<div class="container mt-5">
+
+    <div class="card shadow-lg p-5">
+
+        <div class="text-center">
+
+            <img src="{{ url_for('static', filename='sportlogo.png') }}"
+                 height="100">
+
+            <h1 class="text-primary mt-3">
+                Contact Us
+            </h1>
+
+        </div>
+
+        <hr>
+
+        <div class="row mt-4">
+
+            <div class="col-md-6">
+
+                <h4>📞 Phone</h4>
+                <p>+91 9876543210</p>
+
+                <h4>📧 Email</h4>
+                <p>support@sportigo.com</p>
+
+                <h4>📍 Address</h4>
+                <p>
+                    Kolhapur, Maharashtra, India
+                </p>
+
+            </div>
+
+            <div class="col-md-6">
+
+                <form>
+
+                    <input type="text"
+                           class="form-control mb-3"
+                           placeholder="Your Name">
+
+                    <input type="email"
+                           class="form-control mb-3"
+                           placeholder="Your Email">
+
+                    <textarea class="form-control mb-3"
+                              rows="5"
+                              placeholder="Your Message"></textarea>
+
+                    <button class="btn btn-primary">
+                        Send Message
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

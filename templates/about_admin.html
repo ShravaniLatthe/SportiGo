@@ -1,0 +1,63 @@
+{% extends "adminbase.html" %}
+
+{% block body %}
+
+<div class="container mt-5">
+
+    <div class="card shadow-lg p-5">
+
+        <div class="text-center">
+
+            <img src="{{ url_for('static', filename='sportlogo.png') }}"
+                 height="90">
+
+            <h2 class="mt-3 text-primary">
+                About Admin
+            </h2>
+
+        </div>
+
+        <hr>
+
+        <h4>Developer Information</h4>
+
+        <p>
+            This Sports Equipment Management System (SportiGo)
+            was developed by <b>Shravani Latthe</b> as a
+            Full Stack Web Development project using
+            Python Flask, MySQL, HTML, CSS, Bootstrap,
+            and JavaScript.
+        </p>
+
+        <h4>Admin Responsibilities</h4>
+
+        <ul>
+            <li>Add and manage sports categories</li>
+            <li>Add and manage sports products</li>
+            <li>Update product details and pricing</li>
+            <li>Manage discounts and offers</li>
+            <li>Monitor customer orders</li>
+        </ul>
+
+        <h4>Technologies Used</h4>
+
+        <ul>
+            <li>Python Flask</li>
+            <li>MySQL Database</li>
+            <li>HTML5</li>
+            <li>CSS3</li>
+            <li>Bootstrap 5</li>
+            <li>JavaScript</li>
+        </ul>
+
+        <div class="alert alert-success mt-4 text-center">
+
+            SportiGo Admin Panel Version 1.0
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

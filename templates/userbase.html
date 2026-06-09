@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sports Store</title>
+
+    <link rel="stylesheet"
+          href="{{url_for('static',filename='bootstrap.min.css')}}">
+
+    <script src="{{ url_for('static', filename='bootstrap.bundle.min.js') }}"></script>
+
+    <style>
+
+        body{
+            font-family: Arial, sans-serif;
+            background-color:#f4f7fc;
+        }
+
+        .navbar{
+            background: linear-gradient(90deg,#0f172a,#1e3a8a) !important;
+        }
+
+        .navbar-brand{
+            color:white !important;
+            font-size:24px;
+            font-weight:bold;
+        }
+
+        .nav-link{
+            color:white !important;
+            font-weight:600;
+        }
+
+        .nav-link:hover{
+            color:#facc15 !important;
+        }
+
+        .dropdown-menu{
+            border-radius:12px;
+        }
+
+        .search-btn{
+            background:#f59e0b;
+            color:white;
+            border:none;
+        }
+
+        .search-btn:hover{
+            background:#d97706;
+            color:white;
+        }
+
+        .alert{
+            margin:15px;
+        }
+
+        .footer{
+            background:#0f172a;
+            color:white;
+            text-align:center;
+            padding:20px;
+            margin-top:50px;
+        }
+
+        .footer h5{
+            color:#facc15;
+        }
+
+        .card{
+            border:none;
+            border-radius:15px;
+            transition:0.3s;
+        }
+
+        .card:hover{
+            transform:translateY(-8px);
+        }
+
+        .btn-warning{
+          background:#f59e0b;
+          border:none;
+          color:white;
+          font-weight:bold;
+        }
+
+      .btn-warning:hover{
+          background:#d97706;
+        }
+
+      .btn-success{
+          font-weight:bold;
+        }
+
+      .card{
+          border-radius:15px;
+        }
+
+        .card{
+    border-radius:15px;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.btn-primary{
+    background:#1e3a8a;
+    border:none;
+}
+
+.btn-primary:hover{
+    background:#0f172a;
+}
+
+.btn-success{
+    font-weight:bold;
+}
+
+.btn-danger{
+    font-weight:bold;
+}
+
+    </style>
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg">
+
+  <div class="container-fluid">
+
+    <a class="navbar-brand" href="{{url_for('index')}}">
+    <img src="{{ url_for('static', filename='sportlogo.png') }}"   height="50" width="150">
+    </a>
+
+    <button class="navbar-toggler bg-light"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent">
+
+      <span class="navbar-toggler-icon"></span>
+
+    </button>
+
+    <div class="collapse navbar-collapse"
+         id="navbarSupportedContent">
+
+      <ul class="navbar-nav me-auto">
+
+        <li class="nav-item">
+          <a class="nav-link"
+             href="{{url_for('index')}}">
+             Home
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link"
+             href="{{url_for('view_category')}}">
+             Categories
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link"
+             href="{{url_for('view_product')}}">
+             Products
+          </a>
+        </li>
+
+        <li class="nav-item dropdown">
+
+          <a class="nav-link dropdown-toggle"
+             href="#"
+             role="button"
+             data-bs-toggle="dropdown">
+
+            More
+
+          </a>
+
+          <ul class="dropdown-menu">
+
+            <li>
+              <a class="dropdown-item"
+                 href="{{url_for('your_orders')}}">
+                 📦 Your Orders
+              </a>
+            </li>
+
+            <li>
+              <a class="dropdown-item"
+                 href="{{url_for('cart')}}">
+                 🛒 Cart
+              </a>
+            </li>
+
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li>
+                <a class="dropdown-item" href="{{ url_for('about') }}">
+                    ℹ️ About Us
+                </a>
+            </li>
+
+            <li>
+                <a class="dropdown-item" href="{{ url_for('contact') }}">
+                    📞 Contact Us
+                </a>
+            </li>
+
+          </ul>
+
+        </li>
+
+      </ul>
+
+      <form class="d-flex">
+
+        <input class="form-control me-2"
+               type="search"
+               placeholder="Search Products">
+
+        <button class="btn search-btn"
+                type="submit">
+                Search
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</nav>
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for msg in messages %}
+
+      <div class="alert alert-success text-center">
+
+        {{ msg }}
+
+      </div>
+
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
+{% block body %}
+{% endblock %}
+
+<div class="footer">
+
+    <img src="{{ url_for('static', filename='sportlogo.png') }}"   height="50" width="150" >
+
+    <br>
+    
+    <p>
+        Cricket • Football • Badminton • Fitness Equipment
+    </p>
+
+    <small>
+        Designed by Shravani Latthe © 2026
+    </small>
+
+</div>
+
+</body>
+</html>

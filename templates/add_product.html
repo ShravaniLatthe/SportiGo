@@ -1,0 +1,72 @@
+{% extends "adminbase.html" %}
+{% block body %}
+
+<div class="container">
+<form action="{{url_for('product')}}" method="post" enctype="multipart/form-data">
+    <center><h2>Add Product</h2></center>
+    <div class="row">
+        <div class="col-sm-12">
+            <label>Product Name:<span>*</span></label>
+            <input type="text" name="p_name" placeholder="Enter Product Name:" class="form-control" required>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-sm-12">
+            <label>Product Size:<span>*</span></label>
+            <input type="text" name="p_size" placeholder="Enter Product Size" class="form-control" required>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-sm-12">
+            <label>Product Price:<span>*</span></label>
+            <input type="text" name="p_price" placeholder="Enter Product price:" class="form-control" required>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-sm-12">
+            <label>Product Brand:</label>
+            <input type="text" name="p_brand" placeholder="Enter Product Brand Name" class="form-control">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-sm-12">
+            <label>Product Image:<span>*</span></label>
+            <input type="file" name="p_image"  class="form-control" required>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-sm-12">
+            <label>Product Discount Price (%):</label>
+            <input type="text" name="p_discount" placeholder="Enter Discount Price" class="form-control">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-sm-12">
+            <label>Product Category:</label>
+                <select name="p_category" class="form-control">
+                    {% for cat in categories %}
+                        <option value="{{ cat[0] }}">{{ cat[1] }}</option>
+                    {% endfor %}
+                </select>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-sm-12">
+            <input type="submit" name="btn" value="Add" class="btn btn-primary">
+            <input type="reset" name="btn" value="Cancel" class="btn btn-danger">
+        </div>
+    </div>
+    <br>
+    </form>
+    <form action="{{ url_for('view_product') }}">
+        <input type="submit" name="btn" value="View Product" class="btn btn-primary" style="background-color: #1B3A57">
+    </form>
+</div>
+{% endblock %}
